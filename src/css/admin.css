@@ -6,17 +6,42 @@
 	text-align: center;
 	color: rgba(82, 82, 82, 0.7);
 }
-.ant-menu {
-   position: relative;
-	width: 100% !important;
-	background-color: #8170c1 !important;
-	color: white !important;
-	
-	width: 99.5% !important;
-	margin-left: auto;
-	margin-right: auto;
-	
-	border: none !important;
+
+
+.icon-1{
+   position: relative !important;
+   padding-bottom: 25px !important;
+   left: 0% !important;
+   width: 24% !important;
+   text-align: center;
+}
+.icon-3{
+   
+   padding-bottom: 25px !important;
+   position: relative !important;
+   width: 25% !important;
+   text-align: center;
+   
+}
+.icon-1:hover ,.icon-2:hover,.icon-3:hover,.icon-4:hover{
+   
+   padding-bottom: 25px !important;
+
+
+}
+.icon-2{
+   padding-bottom: 25px !important;
+   position:relative !important;
+   width: 25% !important;
+   text-align: center;
+
+}
+.icon-4 {
+   padding-bottom: 25px !important;
+   position: relative !important;
+   width: 25% !important;
+   text-align: center;
+   
 }
 .sideNav {
 	height: 91vh;
@@ -27,15 +52,24 @@
 	top: 8vh;
 	background-color: #8170c1;
 }
+.ant-menu {
+   position: relative;
+   width: 99%;
+   border-radius: 10px;
+   margin-left: auto;
+   margin-right: auto;
+   top: 5px !important;
+   box-shadow: 0px 20px 140px 0px rgba(0, 0, 0, 0.2)  !important;
+}
 
 .doctorAdd {
 	position: relative;
-	width: 85%;
-	float: right;
+	/* width: 85%; */
+	/* float: right; */
 }
 .doc-form {
    position: relative;
-	margin-top: 15%;
+	margin-top: 5%;
 	width: 50%;
 	margin-left: auto;
 	margin-right: auto;

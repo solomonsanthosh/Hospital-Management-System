@@ -15,7 +15,7 @@ const ShowDoc = () => {
 	return (
 		<div>
 			<NavBar></NavBar>
-			<AdminNav select={'2'} open={'sub1'}></AdminNav>
+			<AdminNav select={'2'}></AdminNav>
 			<div className='doctorAdd'>
 				<div className='doc-form' >
 					{doctor.map((doc) => (

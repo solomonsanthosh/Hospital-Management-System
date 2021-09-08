@@ -14,7 +14,7 @@ const ViewStaff = () => {
 	return (
 		<div>
 			<NavBar></NavBar>
-			<AdminNav select={'4'} open={'sub2'}></AdminNav>
+			<AdminNav select={'3'}></AdminNav>
 			<div className='doctorAdd'>
 				<div className='doc-form' >
 					{staff.map((staff) => (

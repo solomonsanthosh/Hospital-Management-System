@@ -4,22 +4,21 @@ import { Link } from 'react-router-dom';
 import { Menu } from 'antd';
 import {
 	MailOutlined,
-	AppstoreOutlined,
-	SettingOutlined,
+	UsergroupAddOutlined,
+	UnorderedListOutlined,
 } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 
 const AdminNav = (prop) => {
    const [current, setCurrent] = useState(prop.select)
-	const handleClick = async (e) => {
-      await setCurrent(`${e.key}`);
-      await console.log(e.key);
-      await console.log(current);
+	const handleClick = (e) => {
+      console.log(e.key);
+      console.log(prop);
    }
 	return (
 		<>
-			<div className='sideNav'>
+			{/* <div className='sideNav'>
 				<Menu
                style={{ width: 256 }}
 					mode='inline'
@@ -47,8 +46,43 @@ const AdminNav = (prop) => {
 				{/* <Link className='add-doc-sidenav'>Add Doctor</Link>
             <Link>View Doctors</Link>
             <Link>Add Staff</Link>
-            <Link>View Staff</Link> */}
-			</div>
+            <Link>View Staff</Link>}
+			</div> */}
+         <Menu
+         style={{
+            position: 'relative',
+            height: '100px',
+            display: 'flex',
+            alignItems: 'flex-end',
+            marginTop: '5px',
+            width: '99%',
+            borderRadius: '10px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            
+         }}
+			selectedKeys={current}
+			mode='horizontal'
+			className='d-flex '
+		>
+			
+         <Menu.Item className= 'icon-1'  key='1' icon={<UsergroupAddOutlined />}>
+					<Link to='/admin'><span>Add Doctor</span></Link>
+				</Menu.Item>
+			<Menu.Item className= 'icon-2' key='2' icon={<UnorderedListOutlined />}>
+				<Link to='/admin/doctor'>Doctors</Link>
+			</Menu.Item>
+         <Menu.Item className= 'icon-4' key='4' icon={<UsergroupAddOutlined />}>
+				<Link to='/admin/staff/add'>Add Staff</Link>
+			</Menu.Item>
+         <Menu.Item className= 'icon-3' key='3' icon={<UnorderedListOutlined />}>
+				<Link to='/admin/staff/view'>Staff</Link>
+			</Menu.Item>
+
+
+
+			
+		</Menu>
 		</>
 	);
 };

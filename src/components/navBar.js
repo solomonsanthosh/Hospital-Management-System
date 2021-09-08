@@ -17,6 +17,9 @@ const NavBar = () => {
 
 	return (
 		<Menu
+		style={{
+			background: '#028CFF' 
+		}}
 			selectedKeys={[current]}
 			mode='horizontal'
 			className='d-flex justify-content-end'
