@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../css/admin.css';
 import { Link } from 'react-router-dom';
 import { Menu } from 'antd';
@@ -10,25 +10,38 @@ import {
 
 const { SubMenu } = Menu;
 
-const adminNav = () => {
+const AdminNav = (prop) => {
+   const [current, setCurrent] = useState(prop.select)
+	const handleClick = async (e) => {
+      await setCurrent(`${e.key}`);
+      await console.log(e.key);
+      await console.log(current);
+   }
 	return (
 		<>
 			<div className='sideNav'>
 				<Menu
-					style={{ }}
-					defaultSelectedKeys={['1']}
-					defaultOpenKeys={['sub1']}
+               style={{ width: 256 }}
 					mode='inline'
+               onClick={handleClick} 
+               defaultOpenKeys={['sub1']}
+               selectedKeys={current}    
 				>
-					<SubMenu key='sub1' icon={<MailOutlined />} title='Doctors'>
-						
-							<Menu.Item key='1'>Add Doctor</Menu.Item>
-							<Menu.Item key='2'>View Doctors</Menu.Item>
-					
+					<SubMenu key='sub1' icon={<SettingOutlined />} title='Doctors'>
+						<Menu.Item key='1'><Link style={{
+                     color:'white'
+                  }}to='/admin'>Add Doctors</Link></Menu.Item>
+						<Menu.Item key='2'><Link style={{
+                     color:'white'
+                  }} to='/admin/doctor'>View Doctors</Link></Menu.Item>
 					</SubMenu>
-					<SubMenu key='sub2' icon={<AppstoreOutlined />} title='Staff'>
-						<Menu.Item key='5'>Add staff</Menu.Item>
-						<Menu.Item key='6'>View staff</Menu.Item>
+					<SubMenu key='sub2' icon={<SettingOutlined />} title='Staff'>
+						<Menu.Item key='3'><Link style={{
+                     color:'white'
+                  }} to='/admin/staff/add'>Add Staff</Link></Menu.Item>
+						<Menu.Item key='4'><Link style={{
+                     color:'white'
+                  }} to='/admin/staff/view'>View Staff</Link></Menu.Item>
 					</SubMenu>
 				</Menu>
 				{/* <Link className='add-doc-sidenav'>Add Doctor</Link>
@@ -39,4 +52,4 @@ const adminNav = () => {
 		</>
 	);
 };
-export default adminNav;
+export default AdminNav;

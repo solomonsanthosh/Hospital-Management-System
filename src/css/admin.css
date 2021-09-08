@@ -1,50 +1,46 @@
 .titleAdd {
-   position: relative;
-   left: 50%;
-   transform: translateX(-50%);
-   margin-top: 5rem;
-   text-align: center;
-   color: rgba(82, 82, 82,0.7);
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	margin-top: 5rem;
+	text-align: center;
+	color: rgba(82, 82, 82, 0.7);
 }
 .ant-menu {
-   
-   width: 100% !important;
-   background-color: #8170C1 !important;
-   color: white !important;
-   border-radius: 10px !important;
-   width: 99.5% !important;
-   margin-left: auto;
-   margin-right: auto;
-   margin-top: 5px;
-   border: none !important;
+   position: relative;
+	width: 100% !important;
+	background-color: #8170c1 !important;
+	color: white !important;
+	
+	width: 99.5% !important;
+	margin-left: auto;
+	margin-right: auto;
+	
+	border: none !important;
 }
 .sideNav {
-   height: 91vh;
-   position: fixed;
-   width: 15%;
-   margin-left: 5px;
-  border-radius: 10px;
-  top: 7.8vh;
- 
- 
-  
-   background-color: #8170C1;
+	height: 91vh;
+	position: fixed;
+	width: 15%;
+	margin-left: 5px;
+	border-radius: 10px;
+	top: 8vh;
+	background-color: #8170c1;
 }
 
 .doctorAdd {
-   position: relative;
-   width: 85%;
-   float: right;
+	position: relative;
+	width: 85%;
+	float: right;
 }
 .doc-form {
-   margin-top: 15%;
-   
-   width: 50%;
-   margin-left: auto;
-   margin-right: auto;
+   position: relative;
+	margin-top: 15%;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
 }
 .add-doc-sidenav {
-   color: white;
-   font-size: 1rem;
-  
+	color: white;
+	font-size: 1rem;
 }

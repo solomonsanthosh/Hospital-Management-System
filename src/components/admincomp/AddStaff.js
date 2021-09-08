@@ -1,34 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { UserAddOutlined, PlusOutlined } from '@ant-design/icons';
+import React, { useState } from 'react';
 import {
 	Form,
 	Input,
-	InputNumber,
-	Cascader,
 	Select,
-	Row,
-	Col,
-	Checkbox,
 	Button,
-	AutoComplete,
 } from 'antd';
 import '../../css/staff.css';
 import '../../css/admin.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import Listitem from '../Listitem';
 const { Option } = Select;
 
-const DoctorAdd = () => {
+const AddStaff = () => {
 	const [email, setEmail] = useState('');
-	const [newDoctor, setNewDoctor] = useState('');
+	const [newStaff, setNewStaff] = useState('');
 	const [phone, setPhone] = useState();
 	const [gender, setGender] = useState('');
-   const [specialisation, setSpecialisation] = useState('')
-
-	const { doctor } = useSelector((state) => ({ ...state }));
+   const [designation, setDesignation] = useState('');
 	const dispatch = useDispatch();
-	const [doctors, setDoctors] = useState([]);
+   const {staff} = useSelector((state)=>({...state}))
+	
 
 
    // const RegistrationForm = () => {
@@ -51,17 +41,17 @@ const DoctorAdd = () => {
          
    //    };
    const onFinish = (e) => {
-           
+         
             e.preventDefault();
             dispatch({
-               type: 'ADD_DOCTOR',
+               type: 'ADD_STAFF',
                payload: {
-               id: doctor.length + 1,
-               name: newDoctor,
+               id: staff.length + 1,
+               name: newStaff,
                email: email,
                phone:phone,
                gender:gender,
-               specialisation: specialisation
+               designation: designation
             },
          });
       }
@@ -71,7 +61,7 @@ const DoctorAdd = () => {
 	};
    const handleChangeSpec = (value) => {
 		
-      setSpecialisation(value)
+      setDesignation(value)
 	};
 
 	return (
@@ -102,10 +92,6 @@ const DoctorAdd = () => {
 					
                // onFinish={onFinish}
 					name='register'
-					initialValues={{
-						residence: ['zhejiang', 'hangzhou', 'xihu'],
-						prefix: '86',
-					}}
 					scrollToFirstError
 				>
 			
@@ -122,17 +108,17 @@ const DoctorAdd = () => {
 						]}
 					>
 						<Input
-							value={newDoctor}
-							onChange={(e) => setNewDoctor(e.target.value)}
+							value={newStaff}
+							onChange={(e) => setNewStaff(e.target.value)}
 						/>
 					</Form.Item>
                <Form.Item
-						name='Specialisation'
-						label='Specialisation'
+						name='Designation'
+						label='Designation'
 						rules={[
 							{
 								required: true,
-								message: 'Please input your Specialisation',
+								message: 'Please input your Designation',
 								whitespace: true,
 							},
 						]}
@@ -143,12 +129,12 @@ const DoctorAdd = () => {
 						onChange={handleChangeSpec}
 					>
                   <Option value="ps" disabled>Please Select</Option>
-						<Option value='neurologist'>neurologist</Option>
-                  <Option value='gynecologist'>gynecologist</Option>
-                  <Option value='dermatologist'>dermatologist</Option>
-                  <Option value='dentist'>dentist</Option>
-                  <Option value='cardiologist'>cardiologist</Option>
-                  <Option value='anesthesiologist'>anesthesiologist</Option>
+						<Option value='Registered Nurse'>Registered nurse</Option>
+                  <Option value='Liscensed Sractical Nurse'>Liscensed practical nurse</Option>
+                  <Option value='Medical Student'>Medical student</Option>
+                  <Option value='Pharmacist'>Pharmacist</Option>
+                  <Option value='Dietitians'>Dietitians</Option>
+                  <Option value='Occupational therapist'>Occupational therapist</Option>
 					</Select>
 					</Form.Item>
                <Form.Item
@@ -252,4 +238,4 @@ const DoctorAdd = () => {
 	);
 };
 
-export default DoctorAdd;
+export default AddStaff;
