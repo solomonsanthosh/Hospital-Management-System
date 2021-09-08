@@ -10,16 +10,7 @@ import Listitem from '../components/Listitem';
 import AdminNav from '../components/adminNav';
 import DoctorAdd from '../components/admincomp/DoctorAdd';
 const Admin = () => {
-	const { doctor } = useSelector((state) => ({ ...state }));
-	const dispatch = useDispatch();
-	const [newDoctor, setNewDoctor] = useState('');
-	const [doctors, setDoctors] = useState([])
-   
-	useEffect(async () => {
-		await setDoctors(doctor);
-      console.log(doctors);
-	}, [doctor]);
-	
+
 
 
 	return (

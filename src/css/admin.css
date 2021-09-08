@@ -6,9 +6,45 @@
    text-align: center;
    color: rgba(82, 82, 82,0.7);
 }
+.ant-menu {
+   
+   width: 100% !important;
+   background-color: #8170C1 !important;
+   color: white !important;
+   border-radius: 10px !important;
+   width: 99.5% !important;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: 5px;
+   border: none !important;
+}
 .sideNav {
-   height: 100vh;
+   height: 91vh;
    position: fixed;
-   width: 20%;
-   background-color: royalblue;
+   width: 15%;
+   margin-left: 5px;
+  border-radius: 10px;
+  top: 7.8vh;
+ 
+ 
+  
+   background-color: #8170C1;
+}
+
+.doctorAdd {
+   position: relative;
+   width: 85%;
+   float: right;
+}
+.doc-form {
+   margin-top: 15%;
+   
+   width: 50%;
+   margin-left: auto;
+   margin-right: auto;
+}
+.add-doc-sidenav {
+   color: white;
+   font-size: 1rem;
+  
 }
