@@ -1,0 +1,14 @@
+.ant-input-affix-wrapper {
+   position: relative;
+   width: 50% !important;
+   left: 50% !important;
+   border-radius: 30px;
+   margin-top: 1rem;
+   transform: translateX(-50%) !important;
+   box-shadow: 1px 1px 1px  rgba(0, 0, 0, 0.2);
+   border: none;
+}
+
+body {
+   background-color: #f0f7ff;
+}

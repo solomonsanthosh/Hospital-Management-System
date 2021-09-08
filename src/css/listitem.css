@@ -1,0 +1,18 @@
+.card-item {
+	position: relative;
+	width: 50%;
+	height: 40px;
+	background-color: rgb(255, 255, 255);
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 30px;
+	box-shadow: 1px 1px 1px  rgba(0, 0, 0, 0.2);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 20px;
+	padding: 20px;
+}
+.edit-icon {
+	padding: 15px;
+}
