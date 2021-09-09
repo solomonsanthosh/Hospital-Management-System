@@ -6,6 +6,7 @@ import Listitem from '../Listitem';
 import '../../css/staff.css';
 import '../../css/admin.css';
 import '../../css/index.css';
+import '../../css/listitem.css'
 
 const ShowDoc = () => {
    const [doctors, setDoctors] = useState([]);
@@ -14,10 +15,10 @@ const ShowDoc = () => {
 
 	return (
 		<div>
-			<NavBar></NavBar>
+			
 			<AdminNav select={'2'}></AdminNav>
-			<div className='doctorAdd'>
-				<div className='doc-form' >
+			<div className='card-main'>
+				<div className='card-container' >
 					{doctor.map((doc) => (
 						<>
 							<Listitem key={doc.name} person={doc}></Listitem>

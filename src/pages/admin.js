@@ -15,7 +15,7 @@ const Admin = () => {
 
 	return (
 		<>
-			<NavBar></NavBar>
+			
          <AdminNav select={'1'}/>
          <DoctorAdd></DoctorAdd>
 

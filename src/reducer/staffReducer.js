@@ -5,7 +5,7 @@ export function staffReducer(
 	switch (action.type) {
 		case 'ADD_STAFF':
 			return [...state, action.payload];
-		case 'REMOVE_STAFF':
+		case 'REMOVE_staff':
 			return state.filter((staff) => {
 				return staff.id !== action.payload; 
 			});

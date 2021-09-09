@@ -61,7 +61,8 @@ const DoctorAdd = () => {
                email: email,
                phone:phone,
                gender:gender,
-               specialisation: specialisation
+               specialisation: specialisation,
+					role: 'doctor'
             },
          });
       }

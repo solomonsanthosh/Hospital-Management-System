@@ -17,3 +17,32 @@
 .edit-icon {
 	padding: 15px;
 }
+.card {
+	
+	margin: 20px;
+	
+
+}
+.card-container {
+	display: flex !important;
+	flex-wrap: wrap;
+	margin-top: 20px !important;
+	
+	
+	
+}
+.card-ftr {
+	display: flex;
+	justify-content: flex-end;
+	height: 40px;
+	align-items: center;
+
+	
+}
+
+.card-main {
+	
+	width:90%;
+	margin-left: auto !important;
+	margin-right: auto ;
+}

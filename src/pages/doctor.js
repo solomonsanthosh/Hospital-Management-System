@@ -12,8 +12,7 @@ const Doctor = () => {
 
 	return (
 		<>
-			<NavBar></NavBar>
-			<h1 className='titleAdd'>Doctor</h1>
+			<h1 className='titleAdd'>View Patients</h1>
 			{ patient.length ? (patient.map(p => <Listitem person={p}/>))  : (<h1 className='titleAdd'>No patient</h1>) }
 			ff
 		</>

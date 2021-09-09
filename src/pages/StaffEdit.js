@@ -2,97 +2,87 @@ import React, { useState } from 'react';
 import {
 	Form,
 	Input,
+	InputNumber,
+	Cascader,
 	Select,
+	Row,
+	Col,
+	Checkbox,
 	Button,
+	AutoComplete,
 } from 'antd';
-import '../../css/staff.css';
-import '../../css/admin.css';
-import { useDispatch, useSelector } from 'react-redux';
-const { Option } = Select;
+import '../css/staff.css';
+import '../css/admin.css';
+import { useDispatch, useSelector  } from 'react-redux';
+import { useHistory } from 'react-router';
 
-const AddStaff = () => {
-	const [email, setEmail] = useState('');
-	const [newStaff, setNewStaff] = useState('');
-	const [phone, setPhone] = useState();
-	const [gender, setGender] = useState('');
-   const [designation, setDesignation] = useState('');
-	const dispatch = useDispatch();
-   const {staff} = useSelector((state)=>({...state}))
+
+
+export const StaffEdit = ({ match }) => {
+	const { staff } = useSelector((state) => ({ ...state }));
+	const { params } = match;
+	const history = useHistory()
+   const found = staff.find((d) => {
+		return d.id == params.id;
+	});
+	console.log(found);
+	const { Option } = Select;
 	
-
-
-   // const RegistrationForm = () => {
-   //    const [form] = Form.useForm();
-
-   //    const onFinish = (e) => {
-   //       console.log('sd');
-   //       e.preventDefault();
-   //       dispatch({
-   //          type: 'ADD_DOCTOR',
-   //          payload: {
-   //             id: doctor.length + 1,
-   //             name: newDoctor,
-   //             email: email,
-   //             phone:phone,
-   //             gender:gender,
-   //             specialisation: specialisation
-   //          },
-   //       });
-         
-   //    };
-   const onFinish = (e) => {
-         
-            e.preventDefault();
-            dispatch({
-               type: 'ADD_STAFF',
-               payload: {
-               id: staff.length + 1,
-               name: newStaff,
-               email: email,
-               phone:phone,
-               gender:gender,
-               designation: designation,
-					role:'staff'
-            },
-         });
-      }
-	const handleChangeGender = (value) => {
-		setGender(value);
-
-	};
-   const handleChangeSpec = (value) => {
+	const [editemail, setEditEmail] = useState(found.email);
+	const [editname, setEditname] = useState(found.name);
+	const [editphone, setEditPhone] = useState(found.phone);
+	const [editgender, setEditGender] = useState(found.gender);
+   const [editdesignation, setEditdesignation] = useState(found.designation)
+   const dispatch = useDispatch()
+	const onFinish = (e) => (
 		
-      setDesignation(value)
-	};
+		e.preventDefault(),
+		dispatch({
+			type: 'EDIT_STAFF',
+			payload: {
+			id: params.id,
+			name: editname,
+			email: editemail,
+			phone:editphone,
+			gender:editgender,
+			designation: editdesignation
+			} 
+		}),
+		history.push('/admin')
+		)
 
+const handleChangeGender = (value) => {
+setEditGender(value);
+
+};
+const handleChangeSpec = (value) => {
+
+setEditdesignation(value)
+};
+	const handleSubmit = (e) => {
+		e.preventDefault();
+      // dispatch({
+      //    type: 'EDIT_DOCTOR',
+      //    payload: {
+      //       id: params.id,
+      //       name: editedDetail
+      //    }
+      // })
+		// history.push('/admin')
+
+
+	};
 	return (
-		<div className='doctorAdd'>
-			<div className='doc-form'>
-				{/* <h1 className='titleAdd'>ADD DOCTOR</h1>
-			<Input
-				size='large'
-				placeholder='Add Doctor'
-				prefix={<UserAddOutlined />}
-				className='addPatient'
-				suffix={
-					<PlusOutlined
-						style={{ backgroundColor: '' }}
-						onClick={handleSubmit}
-					/>
-				}
-				value={newDoctor}
-				onChange={(e) => setNewDoctor(e.target.value)}
-			/>
-			{doctors.map((doc) => (
-				<>
-					<Listitem person={doc}></Listitem>
-				</>
-			))} */}
-				<Form
+		<>
+							<Form
 					// {...formItemLayout}
 					
                // onFinish={onFinish}
 					name='register'
+					initialValues={{
+						residence: ['zhejiang', 'hangzhou', 'xihu'],
+						prefix: '86',
+					}}
 					scrollToFirstError
 				>
 			
@@ -109,8 +99,8 @@ const AddStaff = () => {
 						]}
 					>
 						<Input
-							value={newStaff}
-							onChange={(e) => setNewStaff(e.target.value)}
+							value={editname}
+							onChange={(e) => setEditname(e.target.value)}
 						/>
 					</Form.Item>
                <Form.Item
@@ -130,12 +120,12 @@ const AddStaff = () => {
 						onChange={handleChangeSpec}
 					>
                   <Option value="ps" disabled>Please Select</Option>
-						<Option value='Registered Nurse'>Registered nurse</Option>
-                  <Option value='Liscensed Sractical Nurse'>Liscensed practical nurse</Option>
-                  <Option value='Medical Student'>Medical student</Option>
-                  <Option value='Pharmacist'>Pharmacist</Option>
-                  <Option value='Dietitians'>Dietitians</Option>
-                  <Option value='Occupational therapist'>Occupational therapist</Option>
+						<Option value='neurologist'>neurologist</Option>
+                  <Option value='gynecologist'>gynecologist</Option>
+                  <Option value='dermatologist'>dermatologist</Option>
+                  <Option value='dentist'>dentist</Option>
+                  <Option value='cardiologist'>cardiologist</Option>
+                  <Option value='anesthesiologist'>anesthesiologist</Option>
 					</Select>
 					</Form.Item>
                <Form.Item
@@ -153,9 +143,9 @@ const AddStaff = () => {
 						]}
 					>
 						<Input
-							value={email}
+							value={editemail}
 							onChange={(e) => {
-								setEmail(e.target.value);
+								setEditEmail(e.target.value);
 								
 							}}
 						/>
@@ -176,8 +166,8 @@ const AddStaff = () => {
 							style={{
 								width: '100%',
 							}}
-							value={phone}
-							onChange={(e) => setPhone(e.target.value)}
+							value={editphone}
+							onChange={(e) => setEditPhone(e.target.value)}
 						/>
 					</Form.Item>
 
@@ -234,9 +224,8 @@ const AddStaff = () => {
 
 					
 				</Form>
-			</div>
-		</div>
+		</>
 	);
 };
 
-export default AddStaff;
+export default StaffEdit;

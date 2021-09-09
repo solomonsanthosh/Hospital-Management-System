@@ -76,7 +76,7 @@ const AdminNav = (prop) => {
 				<Link to='/admin/staff/add'>Add Staff</Link>
 			</Menu.Item>
          <Menu.Item className= 'icon-3' key='3' icon={<UnorderedListOutlined />}>
-				<Link to='/admin/staff/view'>Staff</Link>
+				<Link to='/admin/staff'>Staff</Link>
 			</Menu.Item>
 
 

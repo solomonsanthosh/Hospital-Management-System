@@ -6,7 +6,6 @@ import AddStaffComp from '../components/admincomp/AddStaff'
 const AddStaff = () => {
    return (
       <>
-      <NavBar></NavBar>
       <AdminNav select={'4'}></AdminNav>
       <AddStaffComp/>
 
