@@ -13,7 +13,7 @@ import { useDispatch } from 'react-redux';
 const Listitem = (props) => {
 	const dispatch = useDispatch();
 
-	const handleClick = (id,role) => {
+	const handleClick = (id, role) => {
 		console.log(id);
 		dispatch({
 			type: `REMOVE_${role}`,
@@ -37,33 +37,49 @@ const Listitem = (props) => {
 				</div>
 			</div> */}
 			<Card
-				title={<span>{props.person.name}</span>}
-				// extra={
-				// 	<Link className='edit-icon'  to={`/doctor/edit/${props.person.id}`}>
-				// 		<EditOutlined style={{position:'absolute',left:'2px'}}/>
-				// 	</Link>,
-				// 	<Link style={{float:'left'}} to={`/doctor/edit/${props.person.id}`}>
-				// 		<UserDeleteOutlined onClick={() => handleClick(props.person.id)} />
-				// 	</Link>
-				// }
-				
-			
+				title={<span style={{ color: '#39A2DB' }}>{props.person.name}</span>}
+				extra={
+					<span>
+						{props.person.gender === 'Female' && 
+							<img
+								style={{ height: '50px', width: '50px' }}
+								src='https://img.icons8.com/external-vitaliy-gorbachev-flat-vitaly-gorbachev/58/000000/external-doctor-labour-day-vitaliy-gorbachev-flat-vitaly-gorbachev.png'
+							/> ||
+						<img
+						style={{ height: '50px', width: '50px' }}
+						src='https://img.icons8.com/external-justicon-flat-justicon/64/000000/external-doctor-plastic-surgery-justicon-flat-justicon.png'
+					/>} 
+						
+					</span>
+
+					/* `{${props.person.role} === 'Male' ? (
+						
+						) : (
+						
+						) */
+				}
 				style={{ width: 300 }}
 				className='card'
 			>
-					
-				<p>{props.person.specialisation}</p>
-				<p>{props.person.designation}</p>
-				<p>{props.person.email}</p>
-				<p>{props.person.phone}</p>
+				<p style={{ color: '#57CC99' }}>Specialisation: {props.person.specialisation}</p>
+				<p style={{ color: '#57CC99' }}> {props.person.designation && `Designation: ${props.person.designation}`}</p>
+				<p style={{ color: '#787A91' }}>Email: {props.person.email}</p>
+				<p style={{ color: '#787A91' }}>Phone: {props.person.phone}</p>
 				<div className='card-ftr'>
-				<Link className='edit-icon'  to={`${props.person.role}/edit/${props.person.id}`}>
-				<EditOutlined />
-				</Link>
-				
-				<UserDeleteOutlined style={{
-					paddingLeft: '10px'
-				}} onClick={() => handleClick(props.person.id,props.person.role)} />
+					<Link
+						className='edit-icon'
+						to={`${props.person.role}/edit/${props.person.id}`}
+					>
+						<EditOutlined style={{ paddingBottom: '6px' }} />
+					</Link>
+
+					<UserDeleteOutlined
+						style={{
+							paddingLeft: '10px',
+							color: '#E05D5D',
+						}}
+						onClick={() => handleClick(props.person.id, props.person.role)}
+					/>
 				</div>
 			</Card>
 		</div>

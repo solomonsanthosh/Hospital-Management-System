@@ -14,12 +14,14 @@ import {
 import '../css/staff.css';
 import '../css/admin.css';
 import { useDispatch, useSelector  } from 'react-redux';
+import { RoleBasedRedirect } from '../Functions/RoleBasedRedirect';
 import { useHistory } from 'react-router';
 
 
 
 export const DoctorEdit = ({ match }) => {
-	const { doctor } = useSelector((state) => ({ ...state }));
+	const { doctor , user } = useSelector((state) => ({ ...state }));
+	RoleBasedRedirect(user)
 	const { params } = match;
 	const history = useHistory()
    const found = doctor.find((d) => {

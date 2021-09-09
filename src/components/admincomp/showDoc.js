@@ -7,10 +7,13 @@ import '../../css/staff.css';
 import '../../css/admin.css';
 import '../../css/index.css';
 import '../../css/listitem.css'
+import { RoleBasedRedirect } from '../../Functions/RoleBasedRedirect';
 
 const ShowDoc = () => {
    const [doctors, setDoctors] = useState([]);
-	const { doctor } = useSelector((state) => ({ ...state }));
+	const { doctor,user } = useSelector((state) => ({ ...state }));
+	RoleBasedRedirect(user)
+	
 
 
 	return (

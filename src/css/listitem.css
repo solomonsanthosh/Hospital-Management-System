@@ -20,6 +20,8 @@
 .card {
 	
 	margin: 20px;
+
+	
 	
 
 }
@@ -45,4 +47,8 @@
 	width:90%;
 	margin-left: auto !important;
 	margin-right: auto ;
+}
+.patient-card {
+	position: relative;
+	width: 90%;
 }

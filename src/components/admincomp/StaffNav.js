@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import '../css/admin.css';
+import '../../css/admin.css';
+import '../../css/staff.css';
 import { Link } from 'react-router-dom';
 import { Menu } from 'antd';
 import {
@@ -36,10 +37,10 @@ const StaffNav = (prop) => {
 			className='d-flex '
 		>
 			
-         <Menu.Item className= 'icon-1'  key='1' icon={<UsergroupAddOutlined />}>
+         <Menu.Item className= 'icon-1s'  key='1' icon={<UsergroupAddOutlined />}>
 					<Link to='/staff'><span>Add Patients</span></Link>
 				</Menu.Item>
-			<Menu.Item className= 'icon-2' key='2' icon={<UnorderedListOutlined />}>
+			<Menu.Item className= 'icon-2s' key='2' icon={<UnorderedListOutlined />}>
 				<Link to='/staff/patient'>View Patients</Link>
 			</Menu.Item>
 

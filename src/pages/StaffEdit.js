@@ -15,11 +15,13 @@ import '../css/staff.css';
 import '../css/admin.css';
 import { useDispatch, useSelector  } from 'react-redux';
 import { useHistory } from 'react-router';
+import { RoleBasedRedirect } from '../Functions/RoleBasedRedirect';
 
 
 
 export const StaffEdit = ({ match }) => {
-	const { staff } = useSelector((state) => ({ ...state }));
+   const { staff , user } = useSelector((state) => ({ ...state }));
+   RoleBasedRedirect(user)
 	const { params } = match;
 	const history = useHistory()
    const found = staff.find((d) => {

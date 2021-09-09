@@ -12,3 +12,17 @@
 body {
    background-color: #EBEBEB;
 }
+
+.icon-1s {
+   padding-bottom: 25px !important;
+   position:relative !important;
+   width: 49% !important;
+   text-align: center;
+
+}.icon-2s {
+   padding-bottom: 25px !important;
+   position:relative !important;
+   width: 50% !important;
+   text-align: center;
+
+}

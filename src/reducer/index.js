@@ -8,7 +8,7 @@ import { staffReducer } from './staffReducer';
 const persistConfig = {
 	key: 'root',
 	storage,
-	whitelist: ['user','patient'],
+	whitelist: ['user','patient','doctor','staff']
 };
 
 const rootReducer = combineReducers({

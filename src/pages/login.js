@@ -1,42 +1,33 @@
 import React, { useState } from 'react';
 import '../css/login.css';
 import { useDispatch, useSelector } from 'react-redux';
+import NavBar from '../components/navBar';
 // import { Validate } from '../Functions/login';
 
-
-const Login = ({history}) => {
+const Login = ({ history }) => {
 	const dispatch = useDispatch();
 	const [name, setName] = useState('');
 	const [password, setPassword] = useState('');
-   const {user} = useSelector((state)=> ({...state}))
 
-	const users = [{
-		name: 'santy',
-		password: 'santy123'
-	}]
-   const Validate = async (user) => {
-      if (user.name === 'admin' && user.password === 'admin123') {
-         alert('login succesfully');
-         history.push('/admin')
-      } 
-      else if (user.name === 'staff' && user.password === 'staff123') {
-         alert('login succesfully');
-         history.push('/staff')
-      } 
-      else if (user.name === 'doctor' && user.password === 'doctor123') {
-         alert('login succesfully');
-         history.push('/doctor')
-      } 
-      else {
-
-         alert('login failed');
-
-      }
-   };
+	const Validate = async (name, password) => {
+		if (name === 'admin' && password === 'admin123') {
+			alert('login succesfully');
+			history.push('/admin');
+		} else if (name === 'staff' && password === 'staff123') {
+			alert('login succesfully');
+			history.push('/staff');
+		} else if (name === 'doctor' && password === 'doctor123') {
+			alert('login succesfully');
+			history.push('/doctor');
+		} else {
+			alert('login failed');
+		}
+	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
+		Validate(name, password);
 		dispatch({
 			type: 'LOGGED_IN_USER',
 			payload: {
@@ -46,11 +37,35 @@ const Login = ({history}) => {
 		});
 		setName('');
 		setPassword('');
-      Validate(user)
 	};
 	return (
-		<>
-			<div className='container'>
+		<>  
+			<section class='login'>
+				<div class='login-page'>
+					<form action='' class='form'>
+						<h2 class='headtwo'>Login</h2>
+						<input
+							class='input'
+							type='text'
+							placeholder='Username'
+							value={name}
+							onChange={(e) => setName(e.target.value)}
+						/>
+						<input
+							class='input'
+							type='password'
+							placeholder='Password'
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
+						/>
+						<button class='btn' type='submit' onClick={handleSubmit}>
+							Login
+						</button>
+					</form>
+				</div>
+			</section>
+
+			{/* <div className='container'>
 				<form className='box'>
 					<h1>login</h1>
 					<input
@@ -66,8 +81,8 @@ const Login = ({history}) => {
 						name=''
 						placeholder='Enter Password'
 						id='password'
-						value={password}
-						onChange={(e) => setPassword(e.target.value)}
+						value={name}
+						onChange={(e) => setName(e.target.value)}
 					/>
 					<button
 						className='btn'
@@ -79,7 +94,7 @@ const Login = ({history}) => {
 						Submit
 					</button>
 				</form>
-			</div>
+			</div> */}
 		</>
 	);
 };
