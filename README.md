@@ -5,9 +5,9 @@ You can view the website here: https://eden-hospital-management.herokuapp.com/
 ![Screenshot (113)](https://user-images.githubusercontent.com/87234416/132810952-f68fb7e5-f515-4916-96b5-d2dc967f10a8.png)
 
 You can login as
-1) admin with name:admin password: admin123
-2) staff with name:staff password: staff123
-3) doctor with name:doctor password:doctor123
+1) admin with name: admin password: admin123
+2) staff with name: staff password: staff123
+3) doctor with name: doctor password: doctor123
  
  
 ## Admin
