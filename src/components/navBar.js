@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Menu } from 'antd';
 import {
-	MailOutlined,
+	LogoutOutlined 
+	,
 	AppstoreOutlined,
-	SettingOutlined,
+	UserOutlined ,
 } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
@@ -37,22 +38,23 @@ const NavBar = () => {
 		>
 			
 			{!user && (
-				<Menu.Item key='login' icon={<AppstoreOutlined />}>
+				<Menu.Item key='login' icon={<AppstoreOutlined />} style={{color: 'white'}}>
 					<span>Login</span>
 				</Menu.Item>
 			)}
 
 			{user && (
-				<SubMenu
-					key='SubMenu'
-					icon={<SettingOutlined />}
-					title={user ? user.name : 'user'}
-				>
-				</SubMenu>
+				<Menu.Item
+					key='user'
+					icon={<UserOutlined />}
+					style={{color: 'white'}}
+				> <span>{user ? user.name : 'user'} </span>
+				</Menu.Item>
 				
 			)}
 			{user && (
-			<Menu.Item key='Home' icon={<MailOutlined />}>
+			<Menu.Item key='Logout' style={{color: 'white'}} icon={	<LogoutOutlined/> 
+			}>
 				<span onClick={handleCLick} >Logout</span>
 			</Menu.Item>)}
 		</Menu>

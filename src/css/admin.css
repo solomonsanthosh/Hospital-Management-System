@@ -70,12 +70,16 @@
 .doc-form {
    position: relative;
 	margin-top: 10%;
-	width: 50%;
-	margin-left: auto;
+	 width: 50%; 
+
+	margin-left: auto !important;
    
-	margin-right: auto;
+	margin-right: auto !important;
 }
 .add-doc-sidenav {
 	color: white;
 	font-size: 1rem;
+}
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+   border-radius: 20px !important;
 }

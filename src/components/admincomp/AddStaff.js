@@ -6,11 +6,14 @@ import {
 	Button,
 } from 'antd';
 import '../../css/staff.css';
+import { toast } from 'react-toastify';
+import { useHistory } from 'react-router';
 import '../../css/admin.css';
 import { useDispatch, useSelector } from 'react-redux';
 const { Option } = Select;
 
 const AddStaff = () => {
+	const history = useHistory()
 	const [email, setEmail] = useState('');
 	const [newStaff, setNewStaff] = useState('');
 	const [phone, setPhone] = useState();
@@ -43,6 +46,14 @@ const AddStaff = () => {
    const onFinish = (e) => {
          
             e.preventDefault();
+				if (
+					newStaff === '' ||
+					email === '' ||
+					phone === '' ||
+					gender === '' ||
+					designation === ''
+				) { toast.error('Please fill the form');
+			} else {
             dispatch({
                type: 'ADD_STAFF',
                payload: {
@@ -55,6 +66,9 @@ const AddStaff = () => {
 					role:'staff'
             },
          });
+			history.push('/admin/staff');
+			toast.success('Successfully created')
+		}
       }
 	const handleChangeGender = (value) => {
 		setGender(value);
@@ -110,6 +124,7 @@ const AddStaff = () => {
 					>
 						<Input
 							value={newStaff}
+							style={{borderRadius: '20px'}}
 							onChange={(e) => setNewStaff(e.target.value)}
 						/>
 					</Form.Item>
@@ -153,6 +168,7 @@ const AddStaff = () => {
 						]}
 					>
 						<Input
+						  style={{borderRadius: '20px'}}
 							value={email}
 							onChange={(e) => {
 								setEmail(e.target.value);
@@ -173,8 +189,9 @@ const AddStaff = () => {
 					>
 						<Input
 							// addonBefore={prefixSelector}
+							
 							style={{
-								width: '100%',
+								width: '100%',borderRadius: '20px'
 							}}
 							value={phone}
 							onChange={(e) => setPhone(e.target.value)}
@@ -226,8 +243,8 @@ const AddStaff = () => {
 								whitespace: true,
 							},
 						]}>
-                  <Button type='primary' htmlType='submit' onClick={onFinish}>
-						Register
+                  <Button type='primary' htmlType='submit' onClick={onFinish} style={{borderRadius: '20px'}}>
+						Add Staff
 					</Button>
                </Form.Item>
             

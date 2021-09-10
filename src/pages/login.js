@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import '../css/login.css';
 import { useDispatch, useSelector } from 'react-redux';
+
 import NavBar from '../components/navBar';
+import { toast } from 'react-toastify';
 // import { Validate } from '../Functions/login';
 
 const Login = ({ history }) => {
@@ -11,16 +13,16 @@ const Login = ({ history }) => {
 
 	const Validate = async (name, password) => {
 		if (name === 'admin' && password === 'admin123') {
-			alert('login succesfully');
+			toast.success('login succesful');
 			history.push('/admin');
 		} else if (name === 'staff' && password === 'staff123') {
-			alert('login succesfully');
+			toast.success('login succesful');
 			history.push('/staff');
 		} else if (name === 'doctor' && password === 'doctor123') {
-			alert('login succesfully');
+			toast.success('login succesfully');
 			history.push('/doctor');
 		} else {
-			alert('login failed');
+			toast.error('login failed');
 		}
 	};
 
@@ -58,7 +60,7 @@ const Login = ({ history }) => {
 							value={password}
 							onChange={(e) => setPassword(e.target.value)}
 						/>
-						<button class='btn' type='submit' onClick={handleSubmit}>
+						<button class='btnn' type='submit' onClick={handleSubmit}>
 							Login
 						</button>
 					</form>

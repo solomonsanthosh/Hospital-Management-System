@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-
+import { toast } from 'react-toastify';
 import { Form, Input, InputNumber, Button } from 'antd';
-import { UserAddOutlined, PlusOutlined } from '@ant-design/icons';
+
 import '../../css/staff.css';
 import '../../css/index.css';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { useHistory } from 'react-router';
 
 const PatientAdd = () => {
+	const history = useHistory()
 	const dispatch = useDispatch();
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
@@ -34,8 +35,15 @@ const PatientAdd = () => {
 		},
 	};
 	const onFinish = (values) => {
-		console.log(values);
-		console.log(name, age, phone, email, description);
+		if (
+			name === '' ||
+			email === '' ||
+			age === '' ||
+			phone === '' ||
+			
+			description === ''
+		) { toast.error('Please fill the form');
+	} else {
 		dispatch({
 			type: 'PATIENT_ADDED',
 			payload: {
@@ -47,6 +55,9 @@ const PatientAdd = () => {
 				description: description,
 			},
 		});
+		history.push('/staff/patient');
+		toast.success('Successfully created')
+	}
 	};
 
 	return (
@@ -59,6 +70,7 @@ const PatientAdd = () => {
 				validateMessages={validateMessages}
 			>
 				<Form.Item
+				
 					name={['user', 'name']}
 					label='Name'
 					rules={[
@@ -67,7 +79,7 @@ const PatientAdd = () => {
 						},
 					]}
 				>
-					<Input value={name} onChange={(e) => setName(e.target.value)} />
+					<Input value={name} onChange={(e) => setName(e.target.value)} style={{borderRadius:'20px'}}/>
 				</Form.Item>
 				<Form.Item
 					name={['user', 'email']}
@@ -78,7 +90,7 @@ const PatientAdd = () => {
 						},
 					]}
 				>
-					<Input value={email} onChange={(e) => setEmail(e.target.value)} />
+					<Input value={email} onChange={(e) => setEmail(e.target.value)} style={{borderRadius:'20px'}}/>
 				</Form.Item>
 				<Form.Item
 					name={['phone', 'age']}
@@ -91,19 +103,20 @@ const PatientAdd = () => {
 						},
 					]}
 				>
-					<Input value={age} onChange={(e) => setAge(e.target.value)} />
+					<Input value={age} onChange={(e) => setAge(e.target.value)} style={{borderRadius:'20px'}}/>
 				</Form.Item>
 				<Form.Item name={['user', 'phone']} label='phone'>
-					<Input value={phone} onChange={(e) => setPhone(e.target.value)} />
+					<Input value={phone} onChange={(e) => setPhone(e.target.value)} style={{borderRadius:'20px'}}/>
 				</Form.Item>
 				<Form.Item name={['user', 'Description']} label='Description'>
 					<Input.TextArea
 						value={description}
 						onChange={(e) => setDescription(e.target.value)}
+						style={{borderRadius:'20px'}}
 					/>
 				</Form.Item>
 				<Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-					<Button type='primary' htmlType='submit' onClick={onFinish}>
+					<Button type='primary' htmlType='submit' onClick={onFinish} style={{borderRadius:'20px'}}>
 						Submit
 					</Button>
 				</Form.Item>

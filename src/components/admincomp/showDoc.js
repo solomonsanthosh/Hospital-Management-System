@@ -21,13 +21,13 @@ const ShowDoc = () => {
 			
 			<AdminNav select={'2'}></AdminNav>
 			<div className='card-main'>
-				<div className='card-container' >
+				
 					{doctor.map((doc) => (
-						<>
+						<div className='cardSingle'>
 							<Listitem key={doc.name} person={doc}></Listitem>
-						</>
+						</div>
 					))}
-				</div>
+				
 			</div>
 		</div>
 	);

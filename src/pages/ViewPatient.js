@@ -20,9 +20,9 @@ const ViewPatient = () => {
 			<div className='doctorAdd'>
 				<div className='card-container' >
 					{patient.length ? patient.map((p) => (
-						<>
+						<div style={{marginTop: '50px'}}>
 							<ListPatient key={p.name} person={p}></ListPatient>
-						</>
+						</div>
 					)) : (<h1 className='titleAdd'>No Patients currently</h1>) }
 				</div>
 			</div>

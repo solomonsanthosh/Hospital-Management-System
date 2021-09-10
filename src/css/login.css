@@ -49,7 +49,7 @@ body {
 	border-color: #ffc400ec;
 }
 
-.btn {
+.btnn {
 	margin-left: auto;
 	margin-right: auto;
 	display: flex;
@@ -71,7 +71,7 @@ body {
 	cursor: pointer;
 	outline: none;
 }
-.btn:hover {
+.btnn:hover {
 	background: linear-gradient(45deg, #ff9671, #ff6f91, #d65db1);
 	box-shadow: 0px 15px 20px rgba(37, 184, 171, 0.9);
 	color: #f5f7fb;
@@ -147,7 +147,7 @@ p {
 	background-color: #ffffffa8;
 }
 
-.btn {
+.btnn {
 	margin-top: 2rem;
 	width: 120px;
 	height: 30px;
@@ -161,10 +161,7 @@ p {
 	margin-right: auto;
 	margin-left: auto;
 }
-.btn:hover {
-	background-color: #fff;
-	color: #0084ff;
-}
+
 
 input:focus,
 input:focus {

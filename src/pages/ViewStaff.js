@@ -16,14 +16,14 @@ const ViewStaff = () => {
 	return (
 		<div>
 			<AdminNav select={'3'}></AdminNav>
-			<div className='doctorAdd'>
-				<div className='card-container' >
+			<div className='card-main'>
+				
 					{staff.map((staff) => (
-						<>
+						<div className='cardSingle'>
 							<Listitem key={staff.name} person={staff}></Listitem>
-						</>
+						</div>
 					))}
-				</div>
+				
 			</div>
 		</div>
 	);

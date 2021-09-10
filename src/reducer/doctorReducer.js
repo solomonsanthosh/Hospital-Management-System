@@ -1,20 +1,7 @@
 
 
 export function doctorReducer(
-	state = [
-		{
-			id: 1,
-			name: 'loki',
-		},
-		{
-			id: 2,
-			name: 'press',
-		},
-		{
-			id: 3,
-			name: 'abi',
-		},
-	],
+	state = [],
 	action
 ) {
 	switch (action.type) {
