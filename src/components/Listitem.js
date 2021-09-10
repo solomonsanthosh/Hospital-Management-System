@@ -52,11 +52,6 @@ const Listitem = (props) => {
 						
 					</span>
 
-					/* `{${props.person.role} === 'Male' ? (
-						
-						) : (
-						
-						) */
 				}
 				style={{ width: 300 }}
 				className='card'
