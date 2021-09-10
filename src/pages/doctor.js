@@ -17,7 +17,7 @@ const Doctor = () => {
 		<>	
 			<h1 className='titleAdd'>View Patients</h1>
 			{ patient.length ? (patient.map(p => <ListPatient person={p}/>))  : (<h1 className='titleAdd'>No patient</h1>) }
-			ff
+			
 		</>
 	)
 }	
