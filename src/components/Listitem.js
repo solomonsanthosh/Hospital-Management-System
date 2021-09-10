@@ -61,7 +61,7 @@ const Listitem = (props) => {
 				style={{ width: 300 }}
 				className='card'
 			>
-				<p style={{ color: '#57CC99' }}> {props.person.speacialistion && `Specialisation: ${props.person.specialisation}`}</p>
+				<p style={{ color: '#57CC99' }}> {props.person.specialisation && `Specialisation: ${props.person.specialisation}`}</p>
 				<p style={{ color: '#57CC99' }}> {props.person.designation && `Designation: ${props.person.designation}`}</p>
 				<p style={{ color: '#787A91' }}>Email: {props.person.email}</p>
 				<p style={{ color: '#787A91' }}>Phone: {props.person.phone}</p>
